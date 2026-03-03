@@ -1,69 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NexStep</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="app">
+      <div class="sidebar">
+        <h2>NexStep</h2>
+        <ul class="tabs">
+          <li data-tab="dashboard" class="tab__btn active">Dashboard</li>
+          <li data-tab="tasks" class="tab__btn">Tasks</li>
+          <li data-tab="notes" class="tab__btn">Notes</li>
+          <li data-tab="pomodoro" class="tab__btn">Pomodoro</li>
+        </ul>
+      </div>
 
-        <div class="sidebar">
-            <h2>NexStep</h2>
-            <ul class="tabs">
-                <li data-tab="dashboard" class="tab__btn active">Dashboard</li>
-                <li data-tab="tasks" class="tab__btn">Tasks</li>
-                <li data-tab="notes" class="tab__btn">Notes</li>
-                <li data-tab="pomodoro" class="tab__btn">Pomodoro</li>
-            </ul>
+      <div class="content">
+        <div id="dashboard" class="tab">Dashboard</div>
+
+        <div id="tasks" class="tab">
+          <div class="task__input__field">
+            <form autocomplete="off">
+              <input type="text" id="taskInput" />
+              <button type="submit">Add Task</button>
+            </form>
+
+            <div class="task__container">
+              <ul class="task__list">
+                <li class="task__item">
+                  <div class="task__left">
+                    <div class="task__status">Pending</div>
+                    <div class="task__name">Read</div>
+                  </div>
+                  <div class="task__right">
+                    <div class="task__action">
+                      <button class="btn btn-edit">Edit</button>
+                      <button class="btn btn-delete">Delete</button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-
-        <div class="content">
-            <div id="dashboard" class="tab">Dashboard</div>
-
-            <div id="tasks" class="tab active">
-                <div class="task__input__field">
-                    <form autocomplete="off">
-                        <input type="text" id="taskInput">
-                        <button type="submit">Add Task</button>
-                    </form>
-
-                    <div class="task__container">
-                        <ul class="task__list">
-                            <li class="task__item">
-                                <div class="task__left">
-                                    <div class="task__status">
-                                        Pending
-                                    </div>
-                                    <div class="task__name">Read</div>
-                                </div>
-                                <div class="task__right">
-                                    <div class="task__action">
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-delete">Delete</button>
-                                    </div>
-                                </div>
-                            </li>
-                    </ul>
-                    </div>
-                    
-                </div>
+        <div id="notes" class="tab">Notes</div>
+        <div id="pomodoro" class="tab active">
+          <div class="app__container">
+            <div class="display">
+                <div class="timer"><span class="time">25 : 00</span></div>
             </div>
 
-
-            <div id="notes" class="tab">Notes</div>
-            <div id="pomodoro" class="tab">Pomodoro</div>
+            <div class="controls">
+                <button class="btn btn-start">Start</button>
+                <button class="btn btn-pause">Pause</button>
+                <button class="btn btn-resume">Resume</button>
+                <button class="btn btn-reset">Reset</button>
+            </div>
+          </div>
         </div>
-
-
+      </div>
     </div>
-
 
     <script src="./js/script.js"></script>
     <script src="./js/tasks.js"></script>
     <script src="./js/notes.js"></script>
-</body>
+    <script src="./js/pomodoro.js"></script>
+
+  </body>
 </html>

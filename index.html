@@ -27,7 +27,7 @@
               <input type="text" id="taskInput" />
               <button type="submit">Add Task</button>
             </form>
-
+            </div>
             <div class="task__container">
               <ul class="task__list">
                 <li class="task__item">
@@ -44,11 +44,43 @@
                 </li>
               </ul>
             </div>
-          </div>
+          
         </div>
 
-        <div id="notes" class="tab">Notes</div>
-        <div id="pomodoro" class="tab active">
+        <!-- notes app -->
+        <div id="notes" class="tab active">
+            <div class="app__container">
+                <div class="task__input__field">
+            <form autocomplete="off" class="notes__form">
+              <input type="text" id="noteTitle" />
+              <textarea name="noteDes" id="noteDes" placeholder="Write Something..." rows="12"></textarea>
+              <button type="submit">Add Notes</button>
+            </form>
+
+            <div class="notes__container">
+                <ul class="notes__list">
+                    <li class="note__item">
+                        <div class="left">
+                            <div class="note__title">Computer Science and Tech</div>
+                            <div class="note__info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat incidunt voluptatum repudiandae eveniet omnis ratione id magni exercitationem!</div>
+                        </div>
+                        <div class="right">
+                            <div class="note__date">2nd march</div>
+
+                            <div class="note__actions">
+                                <button class="btn btn-edit">Edit</button>
+                                <button class="btn btn-delete">Delete</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- pomodoro -->
+        <div id="pomodoro" class="tab">
           <div class="app__container">
             <div class="display">
                 <div class="timer"><span class="time">25 : 00</span></div>

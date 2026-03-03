@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #111;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: lightslategray;
+}
+
+.tab__btn.active {
+    background-color: white;
+    color: black;
+}
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}

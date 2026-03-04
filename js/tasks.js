@@ -18,16 +18,16 @@ form.addEventListener("submit", function(e){
 
     tasks.push(newTask);
 
-    render(tasks);
+    renderTasks(tasks);
     console.log(tasks);
 
     form.reset();
 })
 
-render(tasks);
+renderTasks(tasks);
 
 
-function render(tasks){
+function renderTasks(tasks){
     taskList.innerHTML = "";
 
     tasks.forEach((task)=>{

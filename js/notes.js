@@ -17,13 +17,14 @@ formField.addEventListener("submit", (e)=>{
     }
 
     notes.push(newNote);
-    render(notes)
+    renderNotes(notes)
     console.log(notes);
 
 })
 
+renderNotes(notes);
 
-function render(){
+function renderNotes(){
 
 notesList.innerHTML = "";
     notes.forEach((note)=>{

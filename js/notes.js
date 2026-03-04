@@ -122,7 +122,7 @@ notesList.addEventListener("click", function(e){
     }
 })
 
-cancelEditBtn.addEventListener("click", function(e){
+cancelEditBtn.addEventListener("click", function(){
     inEditMode = false;
     itemToEdit = null;
     formField.reset();

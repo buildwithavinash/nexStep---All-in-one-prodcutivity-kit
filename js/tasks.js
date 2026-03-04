@@ -1,25 +1,39 @@
 const form = document.querySelector("form");
 const taskInput = document.querySelector("#taskInput");
 const taskList = document.querySelector(".task__list");
+let addTaskBtn = document.querySelector(".btn-addTask");
+let cancelEditBtn = document.querySelector(".btn-cancelEdit");
+
+// states
 let tasks = [];
+let inEditMode = false;
+let itemToEdit = null;
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
 
     let taskTitle = taskInput.value.trim();
-
     if(!taskTitle) return;
 
-    let newTask = {
+    if(inEditMode){
+        itemToEdit.taskName = taskTitle;
+
+        inEditMode = false;
+        itemToEdit = null;
+        addTaskBtn.textContent = "Add Task";
+        cancelEditBtn.classList.add("hidden");
+    }else {
+let newTask = {
         id: Date.now(),
         taskName: taskTitle,
         completed: false
     }
 
     tasks.push(newTask);
+    }
+    
 
     renderTasks(tasks);
-    console.log(tasks);
 
     form.reset();
 })
@@ -74,4 +88,43 @@ function renderTasks(tasks){
     })
 }
 
+taskList.addEventListener("click", function(e){
+    let target = e.target;
+    let closestTask = target.closest(".task__item");
+    if(!closestTask) return;
+
+    if(target.classList.contains("task__status")){
+        tasks.forEach((task)=>{
+            if(task.id === Number(closestTask.dataset.id)){
+                task.completed = !task.completed;
+            }
+        })
+        renderTasks(tasks);
+    }
+
+
+    if(target.classList.contains("btn-delete")){
+        tasks = tasks.filter((task)=> task.id !== Number(closestTask.dataset.id));
+        renderTasks(tasks)
+    }
+
+    if(target.classList.contains("btn-edit")){
+         inEditMode = true;
+        taskInput.focus();
+
+        itemToEdit = tasks.find((task)=> task.id === Number(closestTask.dataset.id));
+        taskInput.value = itemToEdit.taskName;
+        addTaskBtn.textContent = "Update"
+        cancelEditBtn.classList.remove("hidden");
+    }
+})
+
+
+cancelEditBtn.addEventListener("click", function(){
+    inEditMode = false;
+    itemToEdit = null;
+    form.reset();
+    cancelEditBtn.classList.add("hidden");
+    addTaskBtn.textContent = "Add Task"
+})
 

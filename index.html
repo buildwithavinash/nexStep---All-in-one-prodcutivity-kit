@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NexStep</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
   </head>
   <body>
     <div class="app">
       <div class="sidebar">
         <h2>NexStep</h2>
         <ul class="tabs">
-          <li data-tab="dashboard" class="tab__btn active">Dashboard</li>
-          <li data-tab="tasks" class="tab__btn">Tasks</li>
-          <li data-tab="notes" class="tab__btn">Notes</li>
-          <li data-tab="pomodoro" class="tab__btn">Pomodoro</li>
+          <li data-tab="dashboard" class="tab__btn active"><i class="ri-dashboard-horizontal-fill"></i>Dashboard</li>
+          <li data-tab="tasks" class="tab__btn"><i class="ri-task-fill"></i>Tasks</li>
+          <li data-tab="notes" class="tab__btn"><i class="ri-booklet-fill"></i>Notes</li>
+          <li data-tab="pomodoro" class="tab__btn"><i class="ri-timer-fill"></i>Pomodoro</li>
         </ul>
       </div>
 
@@ -23,7 +27,9 @@
         <!-- dashboard tab -->
         <div id="dashboard" class="tab active">
 
-          <h2>Dashboard</h2>
+          <div class="app__container">
+            <div class="inner__container">
+ <h2>Dashboard</h2>
 
           <div class="stats">
 
@@ -43,6 +49,9 @@
 <div class="quote__container">
   <p class="quote__text"></p>
 </div>
+            </div>
+          </div>
+         
 
 </div>
        
@@ -50,7 +59,9 @@
 
         <!-- tasks tab -->
         <div id="tasks" class="tab">
-          <div class="task__input__field">
+          <div class="app__container">
+            <div class="inner__container">
+              <div class="task__input__field">
             <form autocomplete="off">
               <input type="text" id="taskInput" />
              
@@ -113,12 +124,17 @@
               <p class="error__msg">No task found.. Create new tasks for the day</p>
             </div>
           
+            </div>
+          </div>
+          
         </div>
 
         <!-- notes app -->
         <div id="notes" class="tab">
             <div class="app__container">
-                <div class="task__input__field">
+
+              <div class="inner__container">
+                 <div class="task__input__field">
             <form autocomplete="off" class="notes__form">
               <input type="text" id="noteTitle" />
               <textarea name="noteDes" id="noteDes" placeholder="Write Something..." rows="12"></textarea>
@@ -145,13 +161,16 @@
                 </ul>
             </div>
             </div>
+              </div>
+               
             </div>
         </div>
 
         <!-- pomodoro -->
         <div id="pomodoro" class="tab">
           <div class="app__container">
-            <div class="display">
+            <div class="inner__container">
+              <div class="display">
                 <div class="timer"><span class="time">25 : 00</span></div>
             </div>
 
@@ -161,6 +180,8 @@
                 <button class="btn btn-resume">Resume</button>
                 <button class="btn btn-reset">Reset</button>
             </div>
+            </div>
+            
           </div>
         </div>
       </div>

@@ -47,3 +47,20 @@ ul, li {
 .tab.active {
     display: block;
 }
+
+/* dropdown */
+
+.dropdown {
+    width: fit-content;
+    background-color: white;
+}
+
+.dropdown__trigger{
+    background-color: wheat;
+    cursor: pointer;
+}
+
+.dropdown__menu li {
+    padding: 4px;
+    cursor: pointer;
+}

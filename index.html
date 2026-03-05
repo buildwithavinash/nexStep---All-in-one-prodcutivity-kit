@@ -19,22 +19,87 @@
       </div>
 
       <div class="content">
-        <div id="dashboard" class="tab">Dashboard</div>
 
-        <div id="tasks" class="tab  active">
+        <!-- dashboard tab -->
+        <div id="dashboard" class="tab active">
+
+          <h2>Dashboard</h2>
+
+          <div class="stats">
+
+<div>Total Tasks: <span id="totalTasks">0</span></div>
+<div>Completed: <span id="completedTasks">0</span></div>
+<div>Pending: <span id="pendingTasks">0</span></div>
+
+</div>
+
+<div class="recentTasks">
+<h3>Recent Tasks</h3>
+<ul class="recentTasksList"></ul>
+</div>
+
+<div>Focus Sessions: <span id="focusSessions">0</span></div>
+
+<div class="quote__container">
+  <p class="quote__text"></p>
+</div>
+
+</div>
+       
+
+
+        <!-- tasks tab -->
+        <div id="tasks" class="tab">
           <div class="task__input__field">
             <form autocomplete="off">
               <input type="text" id="taskInput" />
+             
+
+              <!-- dropdown -->
+
+              <div class="dropdown">
+                <div class="dropdown__trigger">
+                  Select Category
+                </div>
+
+                <ul class="dropdown__menu hidden">
+                  <li data-value="general">General</li>
+                  <li data-value="workout">Workout</li>
+                  <li data-value="study">Study</li>
+                  <li data-value="cleaning">Cleaning</li>
+                </ul>
+              </div>
+
               <button type="submit" class="btn btn-addTask">Add Task</button>
               <button type="button" class="btn btn-cancelEdit hidden">Cancel Edit</button>
             </form>
             </div>
+
+            <div class="progressbar__container">
+              <div class="progressBar"><div class="progress">0%</div></div>
+            </div>
+
+            <div class="filter__controls">
+              <button class="fiter filter__all">All</button>
+              <button class="fiter filter__pending">Pending</button>
+              <button class="fiter filter__completed">Completed</button>
+            </div>
+
+            <div class="filter__by__search">
+              <input type="search" name="query" id="search__filter" class="search__filter">
+            </div>
+
             <div class="task__container">
               <ul class="task__list">
                 <li class="task__item">
                   <div class="task__left">
-                    <div class="task__status">Pending</div>
+                    <div class="task__metaData">
+                      <div class="task__status">Pending</div>
+                    <div class="task__category">Workout</div>
+                    </div>
+                    
                     <div class="task__name">Read</div>
+
                   </div>
                   <div class="task__right">
                     <div class="task__action">
@@ -44,6 +109,8 @@
                   </div>
                 </li>
               </ul>
+
+              <p class="error__msg">No task found.. Create new tasks for the day</p>
             </div>
           
         </div>
@@ -98,6 +165,8 @@
         </div>
       </div>
     </div>
+
+  </div>
 
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/tasks.js"></script>

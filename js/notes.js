@@ -6,7 +6,7 @@ let addNoteBtn = document.querySelector(".btn-addNotes");
 let cancelEditBtn = document.querySelector(".btn-cancelEdit");
 
 // states
-let notes = [];
+let notes = JSON.parse(localStorage.getItem("notes")) || [];
 let inEditMode = false;
 let itemToEdit = null;
 
@@ -23,6 +23,7 @@ formField.addEventListener("submit", (e)=>{
         itemToEdit.noteHeading = noteHeading
         itemToEdit.noteDes = noteDescription
 
+        saveNotes();
         inEditMode = false;
         itemToEdit = null;
         addNoteBtn.textContent = "Add Note";
@@ -35,6 +36,7 @@ formField.addEventListener("submit", (e)=>{
     }
 
     notes.push(newNote);
+    saveNotes();
     }
     
     renderNotes(notes)
@@ -118,6 +120,7 @@ notesList.addEventListener("click", function(e){
         cancelEditBtn.classList.add("hidden");
         addNoteBtn.textContent = "Add Note"
         notes = notes.filter((note)=> note.id !== Number(card.dataset.id))
+        saveNotes();
         renderNotes(notes);
     }
 })
@@ -140,4 +143,8 @@ function dateFormattter(id){
     }
     const formattedDate = today.toLocaleDateString("en-GB", dateOptions);
     return formattedDate;
+}
+
+function saveNotes(){
+    localStorage.setItem("notes", JSON.stringify(notes));
 }

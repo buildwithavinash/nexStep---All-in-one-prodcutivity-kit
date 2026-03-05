@@ -3,12 +3,14 @@
 
 let controls = document.querySelector(".controls");
 let time = document.querySelector(".time");
+let focusedSessionsDisplay = document.querySelector("#focusSessions");
 
 // states
 let timeLeft = 25*60;
 let currentMode = "focus";
 let currentStatus = "stopped";
 let timerId = null;
+let focusedSessions = Number(localStorage.getItem('focusSessions')) || 0;
 
 // logic
 controls.addEventListener("click", (e)=>{
@@ -40,6 +42,9 @@ function startTimer(){
         if(timeLeft === 0){
             pauseTimer();
             if(currentMode === "focus"){
+                focusedSessions++;
+                localStorage.setItem("focusSessions", focusedSessions);
+               updateFocusSessions();
                 timeLeft = 5*60;
                 currentMode = "break";
             }else if(currentMode === "break"){
@@ -48,7 +53,7 @@ function startTimer(){
             }
         }
        updateDisplay(timeLeft);
-    }, 10);
+    }, 5);
 }
 
 function resetTimer(){
@@ -77,6 +82,14 @@ let sec = timeLeft % 60;
         time.textContent = `${Math.floor(min)} : ${String(sec).padStart(2, "0")}`
         console.log(timeLeft, min, sec);
 }
+
+function updateFocusSessions(){
+    if(focusedSessionsDisplay){
+        focusedSessionsDisplay.textContent = focusedSessions;
+    }
+}
+
+
 
 
 

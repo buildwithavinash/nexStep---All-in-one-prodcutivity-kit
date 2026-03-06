@@ -11,7 +11,7 @@
     --color-white-70: #d1e6d0;
     --color-white-60: #bfc6d4;
 
-    --color-border: ##F7F7F7;
+    --color-border: #b2b2b2;
 }
 
 
@@ -120,16 +120,25 @@ button:hover {
 .dropdown {
     width: fit-content;
     background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+   
 }
 
 .dropdown__trigger{
-    background-color: wheat;
+    background-color: var(--color-white-60);
+    color: var(--color-black-90);
     cursor: pointer;
+    padding: 8px 12px;
+    z-index: 1;
 }
+
 
 .dropdown__menu li {
     padding: 4px;
     cursor: pointer;
+    z-index: 1;
 }
 
 
@@ -219,9 +228,134 @@ gap: 24px;
 }
 
 
+/* tasks */
 
+#tasks {
+    height: 100%;
+    width: 100%;
+}
 
+#tasks #taskInput {
+    padding: 8px 12px;
+    border: 1px solid var(--color-black-60);
+    outline: none;
+    border-radius: 8px;
+}
 
+#tasks .app__container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#tasks .inner__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.task__input__field form{
+   display: flex;
+   gap: 16px;
+   align-items: center;
+}
+
+.progressbar__container {
+    height: 15px;
+    width: 150px;
+    border: 1px solid var(--color-black-100);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    width: 100%;
+    background-color: #57cc99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+#tasks button {
+    padding: 8px 12px;
+}
+
+#tasks .filter__controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#tasks .filter__by__search input {
+    padding: 8px 12px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.task__container {
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    border-radius: 12px;
+    width: 80%;
+}
+
+.task__item {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+}
+
+.task__left {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.task__metaData {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: .7rem;
+}
+
+.task__status {
+    border: 1px solid rgb(255, 255, 48);
+    background-color: rgba(221, 255, 0, 0.436);
+    color: black;
+    border-radius: 999px;
+    padding: 4px;
+}
+
+.task__category {
+    border: 1px solid red;
+    background: red;
+    color: black;
+    border-radius: 999px;
+    padding: 4px;
+}
+
+.task__right {
+    margin-left: auto;
+}
+
+.task__right .task__action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
 /* pomodoro */
 .app__container {

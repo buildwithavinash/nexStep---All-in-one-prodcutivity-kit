@@ -43,7 +43,7 @@
     --radius-xl: 28px;
     --radius-pill: 999px;
 
-    --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.2s ease;
 
     --font-display: 'Inter', sans-serif;
     --font-body: 'Poppins', sans-serif;
@@ -167,7 +167,6 @@ input, textarea, button, select {
 .tab__btn.active {
     background: var(--color-sidebar-active-bg);
     color: var(--color-sidebar-active-text);
-    font-weight: 600;
 }
 
 .tab__btn.active i {
@@ -1011,35 +1010,13 @@ input, textarea, button, select {
 }
 
 #pomodoro .display {
-    position: relative;
+    position: ;
 }
 
-#pomodoro .display::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    height: 320px;
-    background: radial-gradient(ellipse, var(--color-accent-green-light) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.timer {
-    position: relative;
-    z-index: 1;
-    background: var(--color-card-bg);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--color-border);
-    padding: 40px 56px;
-    box-shadow: var(--shadow-lg);
-}
 
 .time {
     font-family: var(--font-display);
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 800;
     color: var(--color-black-90);
     letter-spacing: -2px;

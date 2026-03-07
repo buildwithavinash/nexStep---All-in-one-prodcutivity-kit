@@ -92,11 +92,11 @@ function renderTasks(tasks) {
 
     const editBtn = document.createElement("button");
     editBtn.classList.add("btn", "btn-edit");
-    editBtn.textContent = "Edit";
+    editBtn.textContent = "✏️";
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("btn", "btn-delete");
-    deleteBtn.textContent = "Delete";
+    deleteBtn.textContent = "❌";
 
     taskAction.append(editBtn, deleteBtn);
     taskRight.append(taskAction);
@@ -191,7 +191,7 @@ function applyFilter() {
   renderTasks(result);
   updateDashboardStats();
   renderRecentTasks();
-  updateProgressBar();
+  
 }
 
 // dropdown
@@ -251,24 +251,3 @@ function renderRecentTasks(){
 }
 
 
-// progress bar
-
-function updateProgressBar(){
-    const progressEl = document.querySelector(".progress");
-
-    const total = tasks.length;
-
-    const completed = tasks.filter(t => t.coompleted).length;
-
-    if(total === 0){
-        progressEl.style.width = "0%";
-        progressEl.textContent = "0%"
-        return;
-    }
-
-    const percent = Math.round(completed/total) * 100;
-
-    progressEl.style.width = `${percent}%`;
-        progressEl.textContent = `${percent}%`;
-    
-}

@@ -57,7 +57,7 @@ li.classList.add("note__item")
 li.dataset.id = note.id
 
 const leftDiv = document.createElement('div');
-leftDiv.classList.add("list");
+leftDiv.classList.add("left");
 
 const noteTitle = document.createElement('div');
 noteTitle.classList.add("note__title")
@@ -82,11 +82,11 @@ noteActions.classList.add("note__actions");
 
 const editBtn = document.createElement('button');
 editBtn.classList.add("btn", "btn-edit")
-editBtn.textContent = 'Edit';
+editBtn.textContent = '✏️';
 
 const deleteBtn = document.createElement('button');
 deleteBtn.classList.add("btn", "btn-delete")
-deleteBtn.textContent = 'Delete';
+deleteBtn.textContent = '❌';
 
 noteActions.append(editBtn, deleteBtn);
 rightDiv.append(noteDate, noteActions);
